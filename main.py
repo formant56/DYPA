@@ -174,7 +174,7 @@ def main() -> None:
 
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(
-            headless=True,
+            headless=False,
             args=[
                 "--disable-background-timer-throttling",
                 "--disable-renderer-backgrounding",
