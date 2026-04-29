@@ -20,7 +20,7 @@ class SiteConfig:
     section_toggle_selector: str
     accordion_selector: str
     accordion_index: int
-    section_container_selector: str
+    # section_container_selector: str
     nested_accordion_selector: str
     nested_content_container_selector: str
     username_selector: str
@@ -36,9 +36,9 @@ CONFIG = SiteConfig(
     section_toggle_selector='a[href="#31538"]',
     accordion_selector='div.AccordionCard-header.AccordionLvl1 a[data-toggle="collapse"]',
     accordion_index=3,
-    section_container_selector='[id="31538"]',
+    # section_container_selector='[id="31540"]',
     nested_accordion_selector='[id="31538"] div.AccordionCard-header.AccordionLvl2 a[data-toggle="collapse"]',
-    nested_content_container_selector='[id="31539"]',
+    nested_content_container_selector='[id="31540"]',
     username_selector='input[name="Input.Username"]',
     password_selector='input[name="Input.Password"]',
     submit_selector='button[type="submit"]',
@@ -85,7 +85,7 @@ def click_first_nested_accordion(page: Page, selector: str) -> None:
     deadline = time.monotonic() + 60
 
     while time.monotonic() < deadline:
-        accordion = page.locator(selector).first
+        accordion = page.locator(selector).nth(1)
         if accordion.count() > 0 and accordion.is_visible():
             accordion.scroll_into_view_if_needed()
             accordion.click()
