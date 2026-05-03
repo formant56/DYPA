@@ -242,7 +242,7 @@ def main() -> None:
         print("Clicked the first content link under the nested accordion.")
 
  
-        for step in range(13):
+        for step in range(5):
             click_button_in_content_frame(
                 page,
                 (
@@ -253,10 +253,10 @@ def main() -> None:
                 "Next",
             )
             page.wait_for_load_state("networkidle")
-            print(f"Clicked Next button {step + 1}/13.")
+            print(f"Clicked Next button {step + 1}/5.")
 
-            if step < 13:
-                page.wait_for_timeout(600_000)
+            if step < 5:
+                page.wait_for_timeout(3_600_000)
 
         page.locator('a.nav-link.nav-pill.avatar').click()
         page.wait_for_load_state("networkidle")
