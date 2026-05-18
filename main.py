@@ -38,7 +38,7 @@ CONFIG = SiteConfig(
     accordion_index=3,
     # section_container_selector='[id="31540"]',
     nested_accordion_selector='[id="31538"] div.AccordionCard-header.AccordionLvl2 a[data-toggle="collapse"]',
-    nested_content_container_selector='[id="31542"]',
+    nested_content_container_selector='[id="31543"]',
     username_selector='input[name="Input.Username"]',
     password_selector='input[name="Input.Password"]',
     submit_selector='button[type="submit"]',
@@ -85,7 +85,7 @@ def click_first_nested_accordion(page: Page, selector: str) -> None:
     deadline = time.monotonic() + 60
 
     while time.monotonic() < deadline:
-        accordion = page.locator(selector).nth(3)
+        accordion = page.locator(selector).nth(4)
         if accordion.count() > 0 and accordion.is_visible():
             accordion.scroll_into_view_if_needed()
             accordion.click()
